@@ -6,6 +6,10 @@ Using Strings to do Math
 - learning how a library could be built
 - incomplete
 
+# Proof of Concept
+<script async src="//jsfiddle.net/ninbryan/9xq42c9a/30/embed/"></script>
+
+
 <a href="https://js.org" target="_blank" title="JS.ORG | JavaScript Community">
 <img src="https://logo.js.org/dark_horz.png" width="102" alt="JS.ORG Logo"/></a>
 <!-- alternatives [bright|dark]_[horz|vert|tiny].png (width[horz:102,vert:50,tiny:77]) -->
