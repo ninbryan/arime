@@ -7,7 +7,7 @@ Using Strings to do Math
 - incomplete
 
 # Proof of Concept
-<script async src="//jsfiddle.net/ninbryan/9xq42c9a/30/embed/"></script>
+<iframe width="100%" height="300" src="//jsfiddle.net/ninbryan/9xq42c9a/30/embedded/result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
 
 <a href="https://js.org" target="_blank" title="JS.ORG | JavaScript Community">
