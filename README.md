@@ -6,7 +6,7 @@ Using Strings to do Math
 - learning how a library could be built
 - incomplete
 
-# Proof of Concept
+## Proof of Concept
 [jsfiddle](//jsfiddle.net/ninbryan/9xq42c9a/30/embedded/result/)
 
 
