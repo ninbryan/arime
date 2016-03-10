@@ -1,42 +1,24 @@
+'use strict';
+
 // Constants
 
-const regex = /^[-+]?\d+(\.\d+)?$/;
-
-const isStringyNumber = function (val) {
-	return typeof val === 'string' && regex.test(val);
-};
-
-const StringyNumber = function (val) {
-	if (typeof val === 'number') {
-		return val.toString();
-	}
-	if (isStringyNumber(val)) {
-		return val;
-	}
-};
-
-const isNegative = function (val) {
-	return val[0] === '-';
-};
-
-const absoluteValue = function (val) {
-	if (isNegative(val)) {
-		return val.slice(1);
-	}
-	return val;
-};
+import {zero, plus, minus, dot} from './arime/arithmetic';
+import equations from './arime/equations';
+import operations from './arime/operations'
+import StringyNumber, {absoluteValue, indexOfDot, isNegative} from './arime/StringyNumber';
 
 // //
 
 // Functions
 
-function add (a, b) {
+function add(a, b) {
 
 	let negA = isNegative(a);
 	let negB = isNegative(b);
 
 	// -a + -b
 	if (negA && negB) {
+
 		return '-' + add(absoluteValue(a), absoluteValue(b));
 	}
 	// -a + b
@@ -48,11 +30,19 @@ function add (a, b) {
 		return subtract(a, absoluteValue(b));
 	}
 	// a + b
+
+	// string time...
+	let aDotIndex = indexOfDot(a);
+	let aLength = a.length;
+	
+	let bDotIndex = indexOfDot(b);
+	let bLength = b.length;
+
 	return `(${a} + ${b})`;
 
 }
 
-function subtract (a, b) {
+function subtract(a, b) {
 
 	let negA = isNegative(a);
 	let negB = isNegative(b);
@@ -73,36 +63,35 @@ function subtract (a, b) {
 
 }
 
-// //
 
-// Exports
+const arime = {
+	add: function(numA, numB) {
 
-exports.add = function (numA, numB) {
+		let a = StringyNumber(numA);
+		let b = StringyNumber(numB);
 
-	let a = StringyNumber(numA);
-	let b = StringyNumber(numB);
+		if (a && b) {
+			return add(a, b);
+		}
 
-	if (a && b) {
-		return add(a, b);
+	},
+	subtract: function(numA, numB) {
+
+		let a = StringyNumber(numA);
+		let b = StringyNumber(numB);
+
+		if (a && b) {
+			return subtract(a, b);
+		}
+
+	},
+	toString: function() {
+
+		return 'arime: an <b>ari</b>th<b>me</b>tic library';
+
 	}
-
 };
 
-exports.subtract = function (numA, numB) {
-
-	let a = StringyNumber(numA);
-	let b = StringyNumber(numB);
-
-	if (a && b) {
-		return subtract(a, b);
-	}
-
-};
-
-exports.toString = function () {
-
-	return 'arime: an <b>ari</b>th<b>me</b>tic library';
-
-};
+export default arime;
 
 // //

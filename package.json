@@ -9,7 +9,10 @@
     ]
   },
   "happiness": {
-    "globals": ["exports","module"],
+    "globals": [
+      "exports",
+      "module"
+    ],
     "ignore": [
       "/node_modules",
       "/build",
@@ -17,20 +20,15 @@
     ]
   },
   "scripts": {
-    
-    "clean":"rm -r build/*",
-    
+    "clean": "rm -r build/*",
     "build": "npm run webpack",
     "minify": "npm run webpack-minify",
-    
     "standard": "happiness --verbose | snazzy",
-    
     "webpack": "webpack --config webpack/config.js --progress --colors",
+    "webpack:watch": "webpack --config webpack/config.js --progress --colors --watch",
     "webpack-minify": "webpack --config webpack/minify.js --progress --colors",
-    
-    "prebuild":"npm run standard",
-    "preminify":"npm run standard"
-    
+    "prebuild": "npm run standard",
+    "preminify": "npm run standard"
   },
   "repository": {
     "type": "git",
@@ -46,6 +44,6 @@
     "babel-core": "^6.3.17",
     "babel-loader": "^6.2.0",
     "babel-preset-es2015": "^6.3.13",
-    "webpack": "^1.12.12"
+    "webpack": "^1.12.14"
   }
 }
